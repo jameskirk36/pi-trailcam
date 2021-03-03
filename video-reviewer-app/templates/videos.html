@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+ <h1>Wildlife camera</h1>
+  <button type="button" onclick="window.location='/'">Back to homepage</button>
+  <h2>Videos</h2>
+  {% for video_id,video_title in videos %}
+    <div>
+      <h3>{{ video_title }}</h3>
+      <video width="320" height="240" controls>
+         <source src="./static/videos/{{ video_id }}" type="video/mp4">
+         Cannot view video elements in this browser
+      </video>
+    </div>
+  {% endfor %}
+
+</body>
+</html>

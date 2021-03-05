@@ -1,3 +1,5 @@
+# Full credit goes to Chris at Peak nature blog for this code https://peaknature.co.uk/blog/how-to-build-a-raspberry-pi-zero-trail-camera--part-1-what-you-need
+
 from gpiozero import MotionSensor
 import logging
 from datetime import datetime

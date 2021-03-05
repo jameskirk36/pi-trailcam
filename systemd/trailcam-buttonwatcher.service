@@ -1,0 +1,10 @@
+[Unit]
+Description=PiTrailcam-Buttonwatcher
+
+[Service]
+WorkingDirectory=/home/pi/pi-trailcam/video-reviewer/
+ExecStart=/usr/bin/python3 /home/pi/pi-trailcam/video-reviewer/button-watcher.py
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

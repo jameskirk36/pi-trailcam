@@ -4,6 +4,7 @@
 ./stop_video_reviewer.sh
 
 # stop the video-recorder service
+systemctl --user stop trailcam.service
 
 # turn wifi on
 touch wifi

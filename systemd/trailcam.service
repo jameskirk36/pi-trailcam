@@ -1,0 +1,10 @@
+[Unit]
+Description=PiTrailcam
+
+[Service]
+WorkingDirectory=/home/pi/pi-trailcam/video-recorder/
+ExecStart=/usr/bin/python3 /home/pi/pi-trailcam/video-recorder/trailcam.py
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

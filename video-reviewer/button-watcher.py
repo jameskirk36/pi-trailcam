@@ -24,5 +24,5 @@ def button_callback(channel):
 
 GPIO.add_event_detect(BUTTON_GPIO,GPIO.BOTH,callback=button_callback, bouncetime=50) 
 
-message = input("Press enter to quit\n\n") # Run until someone presses enter
-GPIO.cleanup() 
+while True:
+  True

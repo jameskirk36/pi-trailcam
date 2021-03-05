@@ -1,11 +1,8 @@
 apt-get update
 apt-get upgrade -y
-apt-get install python-pip -y
-
-pip install gpiozero picamera RPi.GPIO spidev
+apt-get install python3-pip -y
 
 apt install python-spidev python3-spidev python3-rpi.gpio -y
-
 apt install python-dev python3-dev python-gpiozero python3-gpiozero python3-picamera gpac -y
 
 

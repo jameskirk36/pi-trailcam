@@ -51,7 +51,7 @@ while True:
             cam.stop_recording()
         time.sleep(1)
         print('Stopped recording')
-        timestamp = datetime.now().strftime('%d-%m-%y_%H-%M-%S')
+        timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         input_video = "/home/pi/video.h264"
 
         logging.info('Attempting to save video')

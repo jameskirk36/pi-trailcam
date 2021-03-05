@@ -7,4 +7,4 @@ ln -s /mnt/usb/videos/*.mp4 ./static/videos/
 
 # Run the app
 export FLASK_APP=app.py
-python3 -m flask run --host=0.0.0.0 --port=80
+python3 -m flask run --host=0.0.0.0 --port=8000 &

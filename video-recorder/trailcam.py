@@ -7,6 +7,14 @@ from subprocess import call
 import picamera
 import time
 import os
+import RPi.GPIO as GPIO
+
+IR_LED_GPIO=24
+PIR_GPIO=14
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(IR_LED_GPIO, GPIO.OUT)
+GPIO.output(IR_LED_GPIO, GPIO.LOW)
 
 if not os.path.exists('trailcam_log/'):
     os.makedirs('trailcam_log/')
@@ -22,7 +30,15 @@ logging.basicConfig(filename=logfile, level=logging.DEBUG,
     format='%(asctime)s %(message)s',
     datefmt='%Y-%m-%d, %H:%M:%S,')
 
-pir = MotionSensor(14)
+
+def remount_usb_drive():
+  # unmount usb drive
+  call("udisksctl unmount -b /dev/sda1", shell=True)
+
+  # mount usb drive again
+  call("udisksctl mount -b /dev/sda1", shell=True)
+
+pir = MotionSensor(PIR_GPIO)
 duration = 20
 
 print('Starting')
@@ -38,6 +54,7 @@ while True:
     logging.info('Motion detected')
     print('Motion detected')
     while pir.motion_detected:
+        GPIO.output(IR_LED_GPIO, GPIO.HIGH)
         print('Beginning capture')
         ts = '{:%Y%m%d-%H%M%S}'.format(datetime.now())
         logging.info('Beginning capture: '+ str(ts)+'.h264')
@@ -73,4 +90,6 @@ while True:
         call(["MP4Box", "-add", input_video, output_video])
         print('Motion ended - sleeping for 10 secs')
         logging.info('Motion Ended')
+        GPIO.output(IR_LED_GPIO, GPIO.LOW)
+        remount_usb_drive()
         time.sleep(10)

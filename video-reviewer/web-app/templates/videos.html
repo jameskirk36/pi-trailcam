@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="/static/app.css?3">
 </head>
 <body>
  <h1>Wildlife camera &#x1F333 &#x1F98A</h1>
@@ -8,8 +9,11 @@
   <h2>Videos &#x1F4FA</h2>
   <span>You have {{videos|length}} videos<span>  
   {% for video_id,video_title in videos %}
-    <div>
-      <h3>{{ video_title }}</h3>
+    <div class="video">
+      <div class="videoheader">
+        <h3 class="videoname">Video: {{ video_title }}</h3>
+        <button class="videobutton" type="button" onclick="window.location='/videos/{{ video_id }}'">Download</button>
+      </div>
       <video width="320" height="240" controls>
          <source src="./static/videos/{{ video_id }}" type="video/mp4">
          Cannot view video elements in this browser

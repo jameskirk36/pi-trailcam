@@ -1,0 +1,10 @@
+.video {
+  background-color: #d7e4ff;
+  margin-bottom: 20px;
+}
+
+.videobutton, .videoname{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}

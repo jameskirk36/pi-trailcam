@@ -26,12 +26,12 @@ def button_callback(channel):
 
    if reviewer_running is False:
       print("Turning reviewer on")
-      turn_reviewer_on()
+#      turn_reviewer_on()
       reviewer_running=True
       GPIO.output(LED_GPIO, GPIO.HIGH)
    else:
       print("Turning reviewer off")
-      turn_reviewer_off()
+      #turn_reviewer_off()
       reviewer_running=False
       GPIO.output(LED_GPIO, GPIO.LOW)
 

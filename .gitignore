@@ -1,5 +1,6 @@
 video-reviewer/web-app/__pycache__/
-video-reviewer/web-app/static/
+video-reviewer/web-app/__pycache__/*
+video-reviewer/web-app/static/videos
 video-recorder/trailcam_log/
 video-recorder/videos/
 video-recorder/video.h264

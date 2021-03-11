@@ -1,0 +1,6 @@
+[udisks]
+Identity=unix-user:pi
+Action=org.freedesktop.udisks2.filesystem-mount
+ResultAny=yes
+ResultInactive=no
+ResultActive=yes

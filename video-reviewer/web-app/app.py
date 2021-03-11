@@ -24,8 +24,7 @@ def extract_title(video_name):
 
 def get_list_of_videos():
   global videos_path
-  videos = os.listdir(videos_path)
-  print(videos)
+  videos = sorted(os.listdir(videos_path))
   vs = list(map( extract_title, Reverse(videos) ))
   return vs
 

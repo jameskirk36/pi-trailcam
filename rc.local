@@ -26,4 +26,9 @@ date
 # Run startup script
 python3 /home/pi/pi-trailcam/video-recorder/startup.py
 
+# Uptime logger
+touch /home/pi/pi-trailcam/uptime-logger/uptimelog.txt
+touch /home/pi/pi-trailcam/uptime-logger/lastuptime.txt
+python3 /home/pi/pi-trailcam/uptime-logger/uptime.py
+
 exit 0

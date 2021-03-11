@@ -24,6 +24,6 @@ sudo hwclock -s
 date
 
 # Run startup script
-python3 ~/pi-trailcam/video-recorder/startup.py
+python3 /home/pi/pi-trailcam/video-recorder/startup.py
 
 exit 0

@@ -28,10 +28,23 @@ def get_list_of_videos():
   vs = list(map( extract_title, Reverse(videos) ))
   return vs
 
+def get_uptimelogs():
+  global logs_path
+  with open(logs_path, 'r') as f:
+    content = f.readlines()
+
+  uptimelogs = [x.strip() for x in content]
+  return uptimelogs
+
 @app.route('/videos')
 def videos():
-    videos = get_list_of_videos();
+    videos = get_list_of_videos()
     return render_template('videos.html', videos=videos)
+
+@app.route('/uptimelogs')
+def uptimelogs():
+    uptimelogs = get_uptimelogs()
+    return render_template('uptimelogs.html', uptimelogs=uptimelogs)
 
 @app.route('/videos/<id>')
 def download_video (id):

@@ -1,0 +1,1 @@
+/home/pi/pi-trailcam/uptime-logger/uptimelog.txt

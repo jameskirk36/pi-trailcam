@@ -7,9 +7,9 @@
  <h1>Wildlife camera &#x1F333 &#x1F98A</h1>
   <button type="button" onclick="window.location='/'">Back to homepage</button>
   <h2>Uptime logs &#x23F2</h2>
-  <span>System uptime - last 10 runs - latest at the top</span>
+  <h3>System uptime - last 10 runs - most recent first</h3>
   {% for log in uptimelogs %}
-    <span>{{ log }}</span>
+    <p>{{ log }}</p>
   {% endfor %}
 </body>
 </html>

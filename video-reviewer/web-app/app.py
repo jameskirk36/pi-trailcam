@@ -6,7 +6,7 @@ from markupsafe import escape
 app = Flask(__name__)
 
 videos_path = "./static/videos/"
-logs_path = "./static/uptimelogs.txt"
+logs_path = "./static/uptimelog.txt"
 
 @app.route('/')
 def homepage():

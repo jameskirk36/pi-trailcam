@@ -6,7 +6,7 @@ rm -rf ./static/videos/*
 ln -s /mnt/usb/videos/*.mp4 ./static/videos/
 
 # Link the uptimelongs into static
-ln -s ../../uptime-logger/uptimelogs.txt ./static/
+ln -s /home/pi/pi-trailcam/uptime-logger/uptimelog.txt ./static/
 
 # Run the app
 export FLASK_APP=app.py

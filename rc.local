@@ -23,6 +23,10 @@ echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
 sudo hwclock -s
 date
 
+
+#Disable onboard wifi at boot
+sudo ip link set wlan0 down
+
 # Run startup script
 python3 /home/pi/pi-trailcam/video-recorder/startup.py
 

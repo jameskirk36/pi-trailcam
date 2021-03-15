@@ -3,7 +3,7 @@ import time
 import os
 import RPi.GPIO as GPIO
 
-STATUS_LED_GPIO=18
+STATUS_LED_GPIO=27
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(STATUS_LED_GPIO, GPIO.OUT)

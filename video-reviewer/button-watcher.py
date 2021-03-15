@@ -4,7 +4,7 @@ import subprocess
 from signal import pause
 
 BUTTON_GPIO=15
-LED_GPIO=18
+LED_GPIO=27
 
 GPIO.setmode(GPIO.BCM)
 
@@ -35,6 +35,6 @@ def button_callback(channel):
       reviewer_running=False
       GPIO.output(LED_GPIO, GPIO.LOW)
 
-GPIO.add_event_detect(BUTTON_GPIO,GPIO.RISING,callback=button_callback, bouncetime=10) 
+GPIO.add_event_detect(BUTTON_GPIO,GPIO.RISING,callback=button_callback, bouncetime=1000) 
 
 pause()

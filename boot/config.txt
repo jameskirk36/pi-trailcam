@@ -1,0 +1,8 @@
+dtparam=spi=on
+dtparam=i2c_arm=on
+start_x=1
+gpu_mem=128
+disable_camera_led=1
+dtparam=act_led_trigger=none
+dtparam=act_led_activelow=on
+dtoverlay=disable-bt

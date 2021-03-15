@@ -1,10 +1,10 @@
-up 2 minutes 
+up 0 minutes 
+up 1 minute
+up 1 minute
+up 1 minute
+up 11 minutes
+up 13 minutes
+up 1 day, 18 hours, 7 minutes
+up 43 minutes
+up 2 minutes
 up 21 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes
-up 1 hour, 19 minutes

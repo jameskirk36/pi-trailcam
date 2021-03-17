@@ -59,7 +59,7 @@ while True:
         ts = '{:%Y%m%d-%H%M%S}'.format(datetime.now())
         logging.info('Beginning capture: '+ str(ts)+'.h264')
         with picamera.PiCamera() as cam:
-            cam.resolution=(1920,1080)
+            cam.resolution=(1024,768)
             cam.rotation=180
             cam.annotate_background = picamera.Color('black')
 

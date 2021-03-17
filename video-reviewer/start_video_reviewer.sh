@@ -12,7 +12,7 @@ touch wifi
 
 # Start the live stream
 export LD_LIBRARY_PATH=mjpg-streamer/mjpg-streamer-experimental/
-mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o "output_http.so -w ./www" -i "input_raspicam.so -x 640 -y 480 -fps 5 -rot 180 -ex night" &
+mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer -o "output_http.so -w ./www" -i "input_raspicam.so -x 640 -y 480 -fps 10 -rot 180 -ex night" &
 
 # Run the web-app
 cd web-app

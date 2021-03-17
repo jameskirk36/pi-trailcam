@@ -9,5 +9,4 @@ ln -s /mnt/usb/videos/*.mp4 ./static/videos/
 ln -s /home/pi/pi-trailcam/uptime-logger/uptimelog.txt ./static/
 
 # Run the app
-export FLASK_APP=app.py
-python3 -m flask run --host=0.0.0.0 --port=8000 &
+python3 app.py &

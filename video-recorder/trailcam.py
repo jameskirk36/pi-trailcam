@@ -11,7 +11,7 @@ import RPi.GPIO as GPIO
 
 IR_LED_GPIO=24
 PIR_GPIO=14
-
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(IR_LED_GPIO, GPIO.OUT)
 GPIO.output(IR_LED_GPIO, GPIO.LOW)
@@ -59,7 +59,7 @@ while True:
         ts = '{:%Y%m%d-%H%M%S}'.format(datetime.now())
         logging.info('Beginning capture: '+ str(ts)+'.h264')
         with picamera.PiCamera() as cam:
-            cam.resolution=(1024,768)
+            cam.resolution=(1920,1080)
             cam.rotation=180
             cam.annotate_background = picamera.Color('black')
 

@@ -35,4 +35,7 @@ touch /home/pi/pi-trailcam/uptime-logger/uptimelog.txt
 touch /home/pi/pi-trailcam/uptime-logger/lastuptime.txt
 python3 /home/pi/pi-trailcam/uptime-logger/uptime.py
 
+
+shopt -s failglob
+
 exit 0

@@ -4,12 +4,13 @@ import netifaces
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, send_file
 from markupsafe import escape
+from time import sleep
+from concurrent.futures import ThreadPoolExecutor
+from signal import pause
 
-IR_LED_GPIO=24
+# DOCS https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor
+executor = ThreadPoolExecutor(2)
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(IR_LED_GPIO, GPIO.OUT)
-GPIO.output(IR_LED_GPIO, GPIO.HIGH)
 
 app = Flask(__name__)
 
@@ -62,3 +63,17 @@ def download_video (id):
     return send_file(video_path, as_attachment=True)
 
 
+def turn_on_ir_leds():
+  IR_LED_GPIO=24
+
+  GPIO.cleanup()
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setup(IR_LED_GPIO, GPIO.OUT)
+  GPIO.output(IR_LED_GPIO, GPIO.HIGH)
+  print("Setting IR LED to HIGH")
+  pause()
+
+if __name__ == '__main__':
+  executor.submit(turn_on_ir_leds)
+  app.run(host="0.0.0.0", port="8000")
+  

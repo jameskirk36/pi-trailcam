@@ -1,8 +1,16 @@
 import os
 import re
 import netifaces
+import RPi.GPIO as GPIO
 from flask import Flask, render_template, send_file
 from markupsafe import escape
+
+IR_LED_GPIO=24
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(IR_LED_GPIO, GPIO.OUT)
+GPIO.output(IR_LED_GPIO, GPIO.HIGH)
+
 app = Flask(__name__)
 
 videos_path = "./static/videos/"

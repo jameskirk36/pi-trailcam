@@ -58,21 +58,25 @@ while True:
         print('Beginning capture')
         ts = '{:%Y%m%d-%H%M%S}'.format(datetime.now())
         logging.info('Beginning capture: '+ str(ts)+'.h264')
+        
         with picamera.PiCamera() as cam:
-            cam.resolution=(1024,768)
-            cam.rotation=180
-            cam.annotate_background = picamera.Color('black')
+          cam.resolution=(1024,768)
+          cam.exposure_mode='night'
+          cam.rotation=180
+          cam.framerate=10
+          cam.annotate_background = picamera.Color('black')
 
-            cam.start_recording('video.h264')
-            start = datetime.now()
-            while (datetime.now() - start).seconds < duration:
-                cam.annotate_text = datetime.now().strftime('%d-%m-%y %H:%M:%S')
-                cam.wait_recording(0.2)
-            cam.stop_recording()
+          cam.start_recording('video.h264')
+          start = datetime.now()
+          while (datetime.now() - start).seconds < duration:
+            cam.annotate_text = datetime.now().strftime('%d-%m-%y %H:%M:%S')
+            cam.wait_recording()
+          cam.stop_recording()
+ 
         time.sleep(1)
         print('Stopped recording')
         timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        input_video = "video.h264"
+        input_video = "video.h264:fps=10"
 
         logging.info('Attempting to save video')
         print('Attempting to save video')
@@ -93,4 +97,4 @@ while True:
         logging.info('Motion Ended')
         GPIO.output(IR_LED_GPIO, GPIO.LOW)
         remount_usb_drive()
-        time.sleep(10)
+        time.sleep(5)

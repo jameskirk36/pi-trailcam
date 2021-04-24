@@ -8,3 +8,33 @@
   vertical-align: middle;
   margin: 10px 0;
 }
+
+.container {
+  width: 350px;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+p, span {
+  font-size: 17px;
+}
+
+button {
+  width: 95%;
+  padding: 1rem;
+  background-color: #c6cbfd;
+  font-family: monospace;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+body {
+  font-family: monospace;
+   
+}

@@ -1,12 +1,10 @@
 import os
 import re
 import netifaces
-import RPi.GPIO as GPIO
 from flask import Flask, render_template, send_file
 from markupsafe import escape
 from time import sleep
 from concurrent.futures import ThreadPoolExecutor
-from signal import pause
 
 # DOCS https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor
 executor = ThreadPoolExecutor(2)
@@ -19,7 +17,11 @@ logs_path = "./static/uptimelog.txt"
 
 @app.route('/')
 def homepage():
-  server_ip = netifaces.ifaddresses('wlan0')[2][0]['addr']
+  server_ip = "0.0.0.0"
+  try:
+    server_ip = netifaces.ifaddresses('wlan0')[2][0]['addr']
+  except:
+    server_ip = "0.0.0.0"
   return render_template('index.html', server_ip=server_ip)
 
 def Reverse(lst): 
@@ -64,14 +66,20 @@ def download_video (id):
 
 
 def turn_on_ir_leds():
-  IR_LED_GPIO=24
 
-  GPIO.cleanup()
-  GPIO.setmode(GPIO.BCM)
-  GPIO.setup(IR_LED_GPIO, GPIO.OUT)
-  GPIO.output(IR_LED_GPIO, GPIO.HIGH)
-  print("Setting IR LED to HIGH")
-  pause()
+  try:
+    import RPi.GPIO as GPIO
+    from signal import pause
+
+    IR_LED_GPIO=24
+    GPIO.cleanup()
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(IR_LED_GPIO, GPIO.OUT)
+    GPIO.output(IR_LED_GPIO, GPIO.HIGH)
+    print("Setting IR LED to HIGH")
+    pause()
+  except:
+    print("Couldnt setup GPIO")
 
 if __name__ == '__main__':
   executor.submit(turn_on_ir_leds)

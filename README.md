@@ -63,3 +63,5 @@ You've have to manually follow the steps listed in [uptime-logger](uptime-logger
 The hardware circuit diagram can be seen in [here](circuit-diagrams/raspberry-pi.fzz).  This can be opened with [Fritzing](https://fritzing.org/)
 
 
+## User guide
+You can see the user guide for how to use this trailcam on this [google docs page](https://docs.google.com/document/d/e/2PACX-1vT-njGph48FSP8ZsxmGHlgkGGrzZTYDqbi_WKcix7ZmfOUW3iR0yc2oDXi7muFYu6zVj8Gw3Hcc5ptP/pub)

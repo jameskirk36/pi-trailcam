@@ -14,10 +14,52 @@ Some key principles:
 
 
 ## Video recorder
-This is based on the incredibly useful article from the [Peak Nature blog](https://peaknature.co.uk/blog/how-to-build-a-raspberry-pi-zero-trail-camera--part-1-what-you-need).  All the credit for the source code and setup here goes to Chris from Peak Nature, i've just changed the GPIO pins that the PIR sensor is connected to
+This is based on the incredibly useful article from the [Peak Nature blog](https://peaknature.co.uk/blog/how-to-build-a-raspberry-pi-zero-trail-camera--part-1-what-you-need).  All the credit for the source code and setup here goes to Chris from Peak Nature, i've just changed the GPIO pins that the PIR sensor is connected to.
+
+
 
 
 ## Video reviewer application
 This is a web app that serves a live feed of the camera to aid with positioning it.  There is also a page to view the recorded videos via a web browser. 
 * For the camera streaming to HTML it uses the [mjpg-streamer](https://github.com/jacksonliam/mjpg-streamer)
 * The web application is a small Python Flask app
+
+
+## Setup - software
+
+### Prerequisites
+* Raspberry pi os flashed to an SD card (tested with RP OS lite March 2021 ish)
+* SSH enabled or a usb keyboard and screen connected for typing commands
+* Raspberry pi os user is expected to be 'pi'
+* This repository is cloned or downloaded to the top level home directory (for example /home/pi/$REPO)
+* The [mjpg-streamer](https://github.com/jacksonliam/mjpg-streamer) repository is downloaded to the same top level home directory, so that its available at /home/pi/mjpg-streamer.  Follow the instructions in mjpg streamer repo on how to build the binary needed for the video-reviewer.
+
+### First setup the config files and systemd services:
+
+All commands are relative to the root of this repository
+
+```
+sudo cp rc.local /etc/rc.local
+cd systemd/ 
+./setup.sh
+cd ..
+sudo cp boot/config.txt /boot/config.txt
+```
+
+### Now setup the video recorder app
+```
+cd video-recorder
+sudo ./setup-sudo.sh
+./setup-python.sh
+```
+
+### Now setup the uptime logger cronjob
+
+You've have to manually follow the steps listed in [uptime-logger](uptime-logger/setup.sh)
+
+
+## Setup - Hardware
+
+The hardware circuit diagram can be seen in [here](circuit-diagrams/raspberry-pi.fzz).  This can be opened with [Fritzing](https://fritzing.org/)
+
+
